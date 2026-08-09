@@ -1,0 +1,24 @@
+@AuthenticationAPI.AuthenticationAPI_HostAddress = http://localhost:5230
+@AuthenticationAPI = http://localhost:5230
+
+POST {{AuthenticationAPI}}/api/Auth/register/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "string",
+    "password": "string"
+}
+
+###
+
+POST {{AuthenticationAPI}}/api/Auth/login/
+Accept: application/json
+Content-Type: application/json
+
+{
+    "username": "string",
+    "password": "string"
+}
+
+###

@@ -1,0 +1,52 @@
+services:
+
+  # ------------------------------------
+  # Infrastructure
+  # ------------------------------------
+
+  authentication-api-database:
+    container_name: authentication-api-postgresql
+    image: postgres:latest
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - authentication_api_database:/var/lib/postgresql
+    restart: always
+
+  # ------------------------------------
+  # Applications
+  # ------------------------------------
+
+  authentication-api:
+    container_name: authentication-api
+    image: authentication-api
+    build:
+      context: .
+      target: authentication-api
+    env_file:
+      - .env
+    environment:
+      ConnectionStrings__Default: >-
+        Host=authentication-api;Port=5432;
+        Database=${DB_NAME};
+        Username=${DB_USER};
+        Password=${DB_PASSWORD}
+    ports:
+      - "5000:8080"
+    depends_on:
+      - authentication-api-database
+    restart: always
+
+# ------------------------------------
+# Volumes
+# ------------------------------------
+
+volumes:
+  authentication_api_database:
+    driver: local
