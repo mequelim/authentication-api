@@ -1,4 +1,4 @@
-using AuthenticationAPI.Data;
+using AuthenticationAPI.DTOs;
 using AuthenticationAPI.Entities;
 using AuthenticationAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;

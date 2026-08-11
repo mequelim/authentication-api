@@ -1,4 +1,4 @@
-using AuthenticationAPI.Data;
+using AuthenticationAPI.DTOs;
 using AuthenticationAPI.Entities;
 
 namespace AuthenticationAPI.Services.Interfaces

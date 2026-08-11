@@ -2,7 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using AuthenticationAPI.Data;
+using AuthenticationAPI.DTOs;
 using AuthenticationAPI.Entities;
 using AuthenticationAPI.Infrastructure.Database;
 using AuthenticationAPI.Services.Interfaces;
